@@ -1,6 +1,6 @@
 # LineIntersections
 
-line.cpp takes line segments and tells you whether they intersect.
+line.cpp takes line segments and tells you whether they intersect. Line segments can have zero length.
 
 Input:
 N: Number of test cases
