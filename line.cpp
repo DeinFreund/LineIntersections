@@ -33,10 +33,14 @@ int main(){
     long long c2 = cc3 * cc4;
     long long l1 = dist(p1,p2);
     long long l2 = dist(p3,p4);
-    if ((c1 < 0 && c2 < 0)){
+    if (max(c1,c2) > 0){
+      //Line segments are not crossing
+      cout << "NO\n";
+    }
+    else if (min(c1,c2) < 0){
       //Line segments cross and there are no three colinear points
       cout << "POINT\n";
-    }else if (cc1 == 0 && cc2 == 0 && cc3 == 0 && cc4 == 0){
+    }else if (cc1 == 0 && cc2 == 0){
       vector<pair<pair<int,int>, pair<int,int>>> points;
       //sort lines
       points.push_back({p1,p2});
@@ -47,20 +51,9 @@ int main(){
       //If second line starts exactly where first line ends, we have a point intersection
       else if (points[1].first <= points[0].second) cout << "POINT\n";
       else cout << "NO\n";
-    }else if (cc1 == 0 && dist(p1, p3) <= l1 && dist(p2, p3) <= l1){
-      //The first point of Line 2 lies on Line 1
-      cout << "POINT\n";
-    }else if (cc2 == 0 && dist(p1, p4) <= l1 && dist(p2, p4) <= l1){
-      //The second point of Line 2 lies on Line 1
-      cout << "POINT\n";
-    }else if (cc3 == 0 && dist(p3, p1) <= l2 && dist(p4, p1) <= l2){
-      //The first point of Line 1 lies on Line 2
-      cout << "POINT\n";
-    }else if (cc4 == 0 && dist(p3, p2) <= l2 && dist(p4, p2) <= l2){
-      //The second point of Line 1 lies on Line 2
-      cout << "POINT\n";
     }else{
-      cout << "NO\n";
+      //Three colinear points and one point on a line
+      cout << "POINT\n";
     }
   }
 }
