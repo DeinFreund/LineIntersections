@@ -20,11 +20,11 @@ int main(){
   cin >> cases;
   for (int blub = 0; blub < cases; blub++){
     pair<int, int> p1, p2, p3, p4;
-    cin >> p1.first >> p1.second >> p2.first >> p2.second  >> p3.first >> p3.second  >> p4.first >> p4.second ;
+    cin >> p1.first >> p1.second >> p2.first >> p2.second  >> p3.first >> p3.second  >> p4.first >> p4.second;
 
     if (p1 > p2) swap(p1, p2);
     if (p3 > p4) swap(p3, p4);
-    
+
     long long cc1 = cross(p1, p2, p3);
     long long cc2 = cross(p1, p2, p4);
     long long cc3 = cross(p3, p4, p1);
@@ -36,8 +36,7 @@ int main(){
     if (max(c1,c2) > 0){
       //Line segments are not crossing
       cout << "NO\n";
-    }
-    else if (min(c1,c2) < 0){
+    }else if (min(c1,c2) < 0){
       //Line segments cross and there are no three colinear points
       cout << "POINT\n";
     }else if (cc1 == 0 && cc2 == 0){
