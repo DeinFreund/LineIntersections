@@ -3,7 +3,7 @@
 using namespace std;
 
 
-long long cross(pair<int, int> & base, pair<int, int> first, pair<int, int> second){
+long long cross(pair<int, int> const& base, pair<int, int> first, pair<int, int> second){
   first.first -= base.first;
   first.second -= base.second;
   second.first -= base.first;
@@ -11,7 +11,7 @@ long long cross(pair<int, int> & base, pair<int, int> first, pair<int, int> seco
   return (long long)first.first * second.second - (long long)first.second * second.first;
 }
 
-long long dist(pair<int, int> & a, pair<int, int> b){
+long long dist(pair<int, int> const& a, pair<int, int> const& b){
   return (a.first-b.first)*(a.first-b.first) + (a.second-b.second)*(a.second-b.second);
 }
 
