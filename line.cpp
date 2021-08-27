@@ -40,11 +40,9 @@ int main(){
       //Line segments cross and there are no three colinear points
       cout << "POINT\n";
     }else if (cc1 == 0 && cc2 == 0){
-      vector<pair<pair<int,int>, pair<int,int>>> points;
+      pair<pair<int,int>, pair<int,int>> points[2]{{p1,p2}, {p3,p4}};
       //sort lines
-      points.push_back({p1,p2});
-      points.push_back({p3,p4});
-      sort(points.begin(), points.end());
+      sort(begin(points), end(points));
       //If second line starts before first line ends and is not a point, we have a segment intersection
       if (points[1].first < points[0].second && l1 * l2 > 0) cout << "SEGMENT\n";
       //If second line starts exactly where first line ends, we have a point intersection
