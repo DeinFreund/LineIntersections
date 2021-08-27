@@ -42,7 +42,7 @@ int main(){
     }else if (cc1 == 0 && cc2 == 0){
       pair<pair<int,int>, pair<int,int>> points[2]{{p1,p2}, {p3,p4}};
       //sort lines
-      sort(begin(points), end(points));
+      if (points[0] > points[1]) swap(points[0], points[1]);
       //If second line starts before first line ends and is not a point, we have a segment intersection
       if (points[1].first < points[0].second && l1 * l2 > 0) cout << "SEGMENT\n";
       //If second line starts exactly where first line ends, we have a point intersection
