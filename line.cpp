@@ -4,7 +4,7 @@ using namespace std;
 
 using point_t = pair<int, int>;
 
-long long cross(point_t const& base, point_t first, point_t second){
+[[nodiscard]] constexpr long long cross(point_t const& base, point_t first, point_t second) noexcept{
   first.first -= base.first;
   first.second -= base.second;
   second.first -= base.first;
@@ -12,7 +12,7 @@ long long cross(point_t const& base, point_t first, point_t second){
   return (long long)first.first * second.second - (long long)first.second * second.first;
 }
 
-long long dist(point_t const& a, point_t const& b){
+[[nodiscard]] constexpr long long dist(point_t const& a, point_t const& b) noexcept{
   return (a.first-b.first)*(a.first-b.first) + (a.second-b.second)*(a.second-b.second);
 }
 
