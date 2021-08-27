@@ -25,14 +25,14 @@ int main(){
     if (p1 > p2) swap(p1, p2);
     if (p3 > p4) swap(p3, p4);
 
-    long long cc1 = cross(p1, p2, p3);
-    long long cc2 = cross(p1, p2, p4);
-    long long cc3 = cross(p3, p4, p1);
-    long long cc4 = cross(p3, p4, p2);
-    long long c1 = cc1 * cc2;
-    long long c2 = cc3 * cc4;
-    long long l1 = dist(p1,p2);
-    long long l2 = dist(p3,p4);
+    const long long cc1 = cross(p1, p2, p3);
+    const long long cc2 = cross(p1, p2, p4);
+    const long long cc3 = cross(p3, p4, p1);
+    const long long cc4 = cross(p3, p4, p2);
+    const long long c1 = cc1 * cc2;
+    const long long c2 = cc3 * cc4;
+    const long long l1 = dist(p1,p2);
+    const long long l2 = dist(p3,p4);
     if (max(c1,c2) > 0){
       //Line segments are not crossing
       cout << "NO\n";
