@@ -2,8 +2,9 @@
 
 using namespace std;
 
+using point_t = pair<int, int>;
 
-long long cross(pair<int, int> const& base, pair<int, int> first, pair<int, int> second){
+long long cross(point_t const& base, point_t first, point_t second){
   first.first -= base.first;
   first.second -= base.second;
   second.first -= base.first;
@@ -11,7 +12,7 @@ long long cross(pair<int, int> const& base, pair<int, int> first, pair<int, int>
   return (long long)first.first * second.second - (long long)first.second * second.first;
 }
 
-long long dist(pair<int, int> const& a, pair<int, int> const& b){
+long long dist(point_t const& a, point_t const& b){
   return (a.first-b.first)*(a.first-b.first) + (a.second-b.second)*(a.second-b.second);
 }
 
@@ -19,7 +20,7 @@ int main(){
   int cases;
   cin >> cases;
   for (int blub = 0; blub < cases; blub++){
-    pair<int, int> p1, p2, p3, p4;
+    point_t p1, p2, p3, p4;
     cin >> p1.first >> p1.second >> p2.first >> p2.second  >> p3.first >> p3.second  >> p4.first >> p4.second;
 
     if (p1 > p2) swap(p1, p2);
@@ -40,7 +41,7 @@ int main(){
       //Line segments cross and there are no three colinear points
       cout << "POINT\n";
     }else if (cc1 == 0 && cc2 == 0){
-      pair<pair<int,int>, pair<int,int>> points[2]{{p1,p2}, {p3,p4}};
+      pair<point_t, point_t> points[2]{{p1,p2}, {p3,p4}};
       //sort lines
       if (points[0] > points[1]) swap(points[0], points[1]);
       //If second line starts before first line ends and is not a point, we have a segment intersection
