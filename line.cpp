@@ -41,7 +41,7 @@ int main(){
       //Line segments cross and there are no three colinear points
       cout << "POINT\n";
     }else if (cc1 == 0 && cc2 == 0){
-      pair<point_t, point_t> points[2]{{p1,p2}, {p3,p4}};
+      array<pair<point_t, point_t>, 2> points{{{p1,p2}, {p3,p4}}};
       //sort lines
       if (points[0] > points[1]) swap(points[0], points[1]);
       //If second line starts before first line ends and is not a point, we have a segment intersection
